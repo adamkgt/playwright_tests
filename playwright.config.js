@@ -1,10 +1,10 @@
-import { defineConfig } from '@playwright/test';
+const { defineConfig } = require('@playwright/test');
 
-export default defineConfig({
+module.exports = defineConfig({
   use: {
-    screenshot: 'on',          // zawsze robi screeny
-    video: 'on',               // zawsze nagrywa video
-    trace: 'on',               // zawsze zapisuje trace
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'retain-on-failure',
   },
   reporter: [['html']],        // raport HTML
 });
