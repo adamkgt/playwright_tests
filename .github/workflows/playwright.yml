@@ -23,18 +23,31 @@ jobs:
 
       # 3️⃣ Instalacja zależności
       - name: Install dependencies
+<<<<<<< HEAD
         run: npm ci
+=======
+        run: npm ci   # lub npm install jeśli nie masz package-lock.json
+>>>>>>> 0fe1a475ab8bb3c9fd0a47d88ef55fdbdec718b3
 
       # 4️⃣ Instalacja przeglądarek Playwrighta
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+<<<<<<< HEAD
       # 5️⃣ Uruchomienie testów i wygenerowanie raportu HTML
       - name: Run Playwright tests
         run: npx playwright test --reporter=dot,html
 
       # 6️⃣ Upload raportu HTML jako artefakt
       - name: Upload HTML report
+=======
+      - name: Run Playwright tests with Dashboard
+        run: npx playwright test --reporter=dot,dashboard,html
+        env:
+          PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
+
+      - name: Upload HTML report as artifact
+>>>>>>> 0fe1a475ab8bb3c9fd0a47d88ef55fdbdec718b3
         if: always()
         uses: actions/upload-artifact@v4
         with:
