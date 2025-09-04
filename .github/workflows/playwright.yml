@@ -20,10 +20,19 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci   # albo `npm install` jeśli nie masz package-lock.json
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run tests
-        run: npx playwright test --reporter=dot
+      - name: Run Playwright tests with Dashboard
+        run: npx playwright test --reporter=dot,dashboard,html
+        env:
+          PLAYWRIGHT_SERVICE_ACCESS_TOKEN: ${{ secrets.PLAYWRIGHT_SERVICE_ACCESS_TOKEN }}
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report
+          path: playwright-report
