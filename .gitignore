@@ -1,0 +1,5 @@
+# Ignorowanie pliku z hasłami
+.env
+
+# Inne przykładowe rzeczy do ignorowania
+node_modules

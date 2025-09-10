@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-"scripts": {
-  "test": "npx playwright test --reporter=dot,html",
-  "report": "npx playwright show-report"
+  "scripts": {
+    "test": "npx playwright test --reporter=dot,html",
+    "report": "npx playwright show-report"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,8 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-playwright": "^2.2.2",
     "prettier": "^3.6.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2"
   }
 }
